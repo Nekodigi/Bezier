@@ -11,13 +11,12 @@ float J(int n, int i, float t){
   return b*pow(t, i)*pow(1-t, n-i);
 }
 
-int binomial(int n, int k){
-  if(k > n-k){
-    k = n-k;//speed up
-  }
-  int b = 1;
-  for(int i = 1; i <= k; i++){
-    b *= (n+1-i)/i;
-  }
-  return b;
-}
+int binomial(int n, int k)  
+{ 
+  // Base Cases 
+  if (k == 0 || k == n) 
+      return 1; 
+    
+  // Recur 
+  return binomial(n - 1, k - 1) + binomial(n - 1, k); 
+} 
