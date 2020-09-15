@@ -25,11 +25,12 @@ void draw(){
   quadraticVertex(B.x, B.y, C.x, C.y);
   endShape();
   float x = mouseX;
-  float t = ((A.x-B.x)+sqrt(x*A.x - 2*x*B.x + x*C.x - A.x*C.x + B.x*B.x))/(A.x - 2*B.x + C.x);
+  float t = solveQuadraticBezier(A.x, B.x, C.x, x);//get t given x
   //if(t<0 || 1<t)t = ((A.x-B.x)-sqrt(x*A.x - 2*x*B.x + x*C.x - A.x*C.x + B.x*B.x))/(A.x - 2*B.x + C.x);;
   
   
-  float y = (1 - t)*((1 - t)*A.y + t*B.y) + t*((1 - t)*B.y + t*C.y);
+  //float y = (1 - t)*((1 - t)*A.y + t*B.y) + t*((1 - t)*B.y + t*C.y);
+  float y = QuadraticBezier(A.y, B.y, C.y, t);//get y given t
   ellipse(x, y, markR, markR);
   line(x, 0, x, height);
   line(0, y, width, y);
