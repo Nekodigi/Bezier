@@ -4,5 +4,5 @@ float QuadraticBezier(float a, float b, float c, float t){
 }
 
 float solveQuadraticBezier(float a, float b, float c, float x){
-  return ((A.x-B.x)+sqrt(x*a - 2*x*b + x*c - a*c + b*b))/(a - 2*b + c);
+  return ((a-b)+sqrt(x*a - 2*x*b + x*c - a*c + b*b))/(a - 2*b + c);
 }
